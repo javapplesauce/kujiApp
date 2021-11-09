@@ -163,6 +163,10 @@ public class ApplicationJournal {
 					}
 				}
 				
+				
+				// bruh
+				
+				
 				// display the data
 				for(int i = 0; i < summaryArr.size(); i++)
 				{
