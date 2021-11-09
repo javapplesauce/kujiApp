@@ -163,8 +163,6 @@ public class ApplicationJournal {
 					}
 				}
 				
-				System.out.println("bruh");
-				
 				// display the data
 				for(int i = 0; i < summaryArr.size(); i++)
 				{
