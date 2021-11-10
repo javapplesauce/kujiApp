@@ -164,7 +164,7 @@ public class ApplicationJournal {
 				}
 				
 				
-				// bruh
+				
 				
 				
 				// display the data
