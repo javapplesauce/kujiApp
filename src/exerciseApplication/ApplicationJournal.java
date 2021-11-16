@@ -87,7 +87,8 @@ public class ApplicationJournal {
 					"\n[1] create a new journal" +
 					"\n[2] add to an existing journal" +
 					"\n[3] view existing journal !UNDER CONSTRUCTION!" + 
-					"\n[4] view weekly summary "
+					"\n[4] view weekly summary " + 
+					"\n[5] view analysis"
 					);
 			
 			// get input from user
@@ -196,6 +197,11 @@ public class ApplicationJournal {
 				// sort the array by the date
 				
 				// use android studio to graph the progress ovre a chart
+				
+				
+			}
+			else if(whatFunct == 5)
+			{
 				
 				
 			}

@@ -7,7 +7,7 @@ import java.util.*;
 
 public class ApplicationMainPage {
 
-	public static void main(String[] args) throws IOException
+	public static void main(String[] args) throws IOException, InterruptedException
 	{
 		System.out.print("Welcome to Kuji, the #1 rated exercise app!");
 		System.out.println();
@@ -38,7 +38,8 @@ public class ApplicationMainPage {
 			}
 			else if(i == 2)
 			{
-				// nothing yet
+				ApplicationTimer t = new ApplicationTimer();
+				
 			}
 			else if(i == 3)
 			{
