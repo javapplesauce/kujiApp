@@ -6,36 +6,32 @@ import java.util.concurrent.TimeUnit;
 
 public class ApplicationTimer
 {
-	private int intervals;
-	private int minWork;
-	private int secWork;
-	private int minRest;
-	private int secRest;
 	
 	public ApplicationTimer() throws InterruptedException
+	{
+		runApp();
+	}
+	
+	public void runApp() throws InterruptedException
 	{
 		Scanner inputTime = new Scanner(System.in);
 		
 		System.out.println("How many intervals? ");
-		this.intervals = Integer.parseInt(inputTime.nextLine());
+		int intervals = Integer.parseInt(inputTime.nextLine());
 		System.out.println("How many minutes of work? ");
-		this.minWork = Integer.parseInt(inputTime.nextLine());
+		int minWork = Integer.parseInt(inputTime.nextLine());
 		System.out.println("How many seconds of work? ");
-		this.secWork = Integer.parseInt(inputTime.nextLine());
+		int secWork = Integer.parseInt(inputTime.nextLine());
 		System.out.println("How many minutes of rest? ");
-		this.minRest = Integer.parseInt(inputTime.nextLine());
+		int minRest = Integer.parseInt(inputTime.nextLine());
 		System.out.println("How many seconds of rest? ");
-		this.secRest = Integer.parseInt(inputTime.nextLine());
-		
-
+		int secRest = Integer.parseInt(inputTime.nextLine());
 		
 		for(int i = 0; i < intervals; i++)
 		{
 			countDown(minWork, secWork);
 			countDown(minRest, secRest); 
 		}
-		
-	   
 	}
 	
 	

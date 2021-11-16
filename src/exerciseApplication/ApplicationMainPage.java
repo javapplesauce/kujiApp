@@ -39,7 +39,7 @@ public class ApplicationMainPage {
 			else if(i == 2)
 			{
 				ApplicationTimer t = new ApplicationTimer();
-				
+				t.runApp();
 			}
 			else if(i == 3)
 			{
