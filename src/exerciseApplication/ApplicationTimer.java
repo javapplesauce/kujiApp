@@ -39,6 +39,8 @@ public class ApplicationTimer
 			System.out.println("Rest! ");
 			countDown(minRest, secRest); 
 		}
+		
+		System.out.println("timer done! ");
 	}
 	
 	
@@ -78,6 +80,7 @@ public class ApplicationTimer
 				x = false;
 			}
 		}
+		TimeUnit.SECONDS.sleep(1);
 		
 		
 	}
