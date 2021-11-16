@@ -27,9 +27,16 @@ public class ApplicationTimer
 		System.out.println("How many seconds of rest? ");
 		int secRest = Integer.parseInt(inputTime.nextLine());
 		
+		
+		System.out.println("Starting timer... ");
+		countDown(0, 3);
+		
 		for(int i = 0; i < intervals; i++)
 		{
+			System.out.println("Interval " + i + ": begin! ");
 			countDown(minWork, secWork);
+			
+			System.out.println("Rest! ");
 			countDown(minRest, secRest); 
 		}
 	}
