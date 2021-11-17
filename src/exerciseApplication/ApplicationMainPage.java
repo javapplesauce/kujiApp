@@ -23,7 +23,7 @@ public class ApplicationMainPage {
 					"\n[3] dictionary" +
 					"\n[4] regiment generator" + 
 					"\n[5] more information on each" +
-					"\n[6] quit"
+					"\n[0] quit"
 					);
 
 			i = Integer.parseInt(console.nextLine());
@@ -32,8 +32,6 @@ public class ApplicationMainPage {
 			{
 				ApplicationJournal a = new ApplicationJournal();
 				a.runApp();
-
-				
 				// ApplicationJournal.runApp();
 			}
 			else if(i == 2)

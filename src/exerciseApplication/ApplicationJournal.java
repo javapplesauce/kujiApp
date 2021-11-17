@@ -202,7 +202,15 @@ public class ApplicationJournal {
 			}
 			else if(whatFunct == 5)
 			{
-				
+				// what do you want to do:
+				/*
+				 - get the most frequently done exercise?
+				 - change in weight for a certain exercise?
+				 = get all the information for an exercise?
+				 - figure out how much to progressively overload (take the average of everything and add it to the value? take 
+				 
+				 
+				 */
 				
 			}
 		
