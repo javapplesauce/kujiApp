@@ -221,7 +221,7 @@ public class ApplicationJournal {
 							summaryArr.add(entryArr.get(i));
 						}
 					}
-					System.out.println("Preparing all journals for viewing. - - -┏ ( ^o^ )┛ ");
+					System.out.println("Preparing all journals for viewing. - - -\\( ^o^ )/ ");
 					TimeUnit.SECONDS.sleep(1);
 					for(int i = 0; i < summaryArr.size(); i++)
 					{
@@ -250,7 +250,7 @@ public class ApplicationJournal {
 						exerciseFreq[entryArr.get(i).returnIdentifier()-1][1]++;
 					}
 					
-					System.out.println("Crunching the numbers ╰( ^o^)╮╰( ^o^)╮");
+					System.out.println("Crunching the numbers \\( ^o^)\\ \\( ^o^)\\");
 					TimeUnit.SECONDS.sleep(1);
 					
 					System.out.println(identifierArr.get(exerciseWhat-1).getName() + " were completed " + 
