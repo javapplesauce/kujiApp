@@ -260,7 +260,24 @@ public class ApplicationJournal {
 				}
 				else if(asdfResponse == 3)
 				{
-					// get the earliest date
+					// get the month, day, and year for all of them
+					int month = 0;
+					int day = 0;
+					int year = 0;
+					
+					// fill an array
+					for(int i = 0; i < entryArr.size(); i++)
+					{
+						if(entryArr.get(i).returnIdentifier() == exerciseWhat)
+						{
+							summaryArr.add(entryArr.get(i));
+						}
+					}
+					
+					for(int i = 0; i < summaryArr.size(); i++)
+					{
+						
+					}
 					
 					// get the most recent date
 					
