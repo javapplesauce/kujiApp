@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 
 public class ApplicationJournal {
 
@@ -31,7 +32,7 @@ public class ApplicationJournal {
 		
 	}
 		
-	public void runApp() throws IOException
+	public void runApp() throws IOException, InterruptedException
 	{
 		
 		boolean newData = false;
@@ -220,6 +221,8 @@ public class ApplicationJournal {
 							summaryArr.add(entryArr.get(i));
 						}
 					}
+					System.out.println("Preparing all journals for viewing. - - -┏ ( ^o^ )┛ ");
+					TimeUnit.SECONDS.sleep(1);
 					for(int i = 0; i < summaryArr.size(); i++)
 					{
 						System.out.println(summaryArr.get(i).returnDate() + ": " + 
@@ -247,10 +250,21 @@ public class ApplicationJournal {
 						exerciseFreq[entryArr.get(i).returnIdentifier()-1][1]++;
 					}
 					
+					System.out.println("Crunching the numbers ╰( ^o^)╮╰( ^o^)╮");
+					TimeUnit.SECONDS.sleep(1);
+					
 					System.out.println(identifierArr.get(exerciseWhat-1).getName() + " were completed " + 
 					exerciseFreq[Integer.parseInt(identifierArr.get(exerciseWhat-1).getIdentifier())-1][1] + " times.");
 				
 					
+				}
+				else if(asdfResponse == 3)
+				{
+					// get the earliest date
+					
+					// get the most recent date
+					
+					// subtract the weight difference (change input based on if you've increased weight or decreased weight
 				}
 				
 				
