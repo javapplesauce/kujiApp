@@ -18,13 +18,13 @@ public class ApplicationJournal {
 		 * - identifierArr = the array with all the identifiers and exercise name
 		 * - entryArr = the array with all the entries (or the cumulative data)
 		 * - summaryArr = the arrayList that temporarily stores all the data of a single exercise that someone wants to log
-		 * 
+		 * - exerciseFreq = the arrayList that stores info on the frequency of exercises
 		 */
 		
 		/*
 		 * TO DO LIST:
-		 * - summarize all the information inside an arrayList
-		 * 
+		 * - figure out how much to progressively overload (take the average of everything and add it to the value? take 
+		 * - work on the analysis portion of the program
 		 */
 		
 		// to check if there's new data being added, if yes, this boolean changes to true, and the variables get added to
@@ -87,8 +87,8 @@ public class ApplicationJournal {
 					"\n[1] create a new journal" +
 					"\n[2] add to an existing journal" +
 					"\n[3] view existing journal !UNDER CONSTRUCTION!" + 
-					"\n[4] view weekly summary " + 
-					"\n[5] view analysis"
+					"\n[4] view analysis " + 
+					"\n[5] WORK IN PROGRESS"
 					);
 			
 			// get input from user
@@ -179,20 +179,82 @@ public class ApplicationJournal {
 			// bruh
 			else if(whatFunct == 4)
 			{
-				System.out.println("Which exercise do you want to see a summary of?");
+				/*
+				 - TO DO LIST:
+				 - list out every journal of a certain exercise?
+				 - get the most frequently done exercise?
+				 - change in weight for a certain exercise?
+				 - get all the information for an exercise?
+				 - 
+				 
+				 */
+				
+				// get input on what analysis should be completed
+				Scanner asdf = new Scanner(System.in);
+				System.out.println("Summary: How do you want your information summarized?" + 
+									"\n[1] display all logs from one exercise" + 
+									"\n[2] display information about the frequency of each exercise" + 
+									"\n[3] display the growth in weight for one exercise"
+									);
+				int asdfResponse = Integer.parseInt(asdf.nextLine());
+				
+				
+				// get input on which exercise should be analyzed
+				System.out.println("Which exercise do you want analyzed?");
 				Scanner Sca = new Scanner(System.in);
 				for(int i = 0; i < identifierArr.size(); i++)
 				{
 					System.out.println(identifierArr.get(i).getIdentifier() + ": " + identifierArr.get(i).getName());
 				}
 				int exerciseWhat = Integer.parseInt(Sca.nextLine());
-				for(int i = 0; i < entryArr.size(); i++)
+				
+				
+				// processes the input from the user
+				if(asdfResponse == 1)
 				{
-					if(entryArr.get(i).returnIdentifier() == exerciseWhat)
+					// display all logs from one exercise
+					for(int i = 0; i < entryArr.size(); i++)
 					{
-						summaryArr.add(entryArr.get(i));
+						if(entryArr.get(i).returnIdentifier() == exerciseWhat)
+						{
+							summaryArr.add(entryArr.get(i));
+						}
 					}
+					for(int i = 0; i < summaryArr.size(); i++)
+					{
+						System.out.println(summaryArr.get(i).returnDate() + ": " + 
+										summaryArr.get(i).returnWeightC() + "lbs for " + 
+										summaryArr.get(i).returnRepC() + " reps."
+											);
+					}
+					Sca.close();
 				}
+				else if(asdfResponse == 2)
+				{
+					// goes through the entire cumulData arraylist and concatenate one each time the identiiers match up
+					
+					// assigns an identifier to each row of the array
+					int[][] exerciseFreq = new int[identifierArr.size()][2];
+					for(int i = 0; i < identifierArr.size(); i++)
+					{
+						exerciseFreq[i][0] = Integer.parseInt(identifierArr.get(i).getIdentifier());
+						exerciseFreq[i][1] = 0;
+					}
+					
+					// concantenation portion
+					for(int i = 0; i < entryArr.size(); i++)
+					{
+						exerciseFreq[entryArr.get(i).returnIdentifier()-1][1]++;
+					}
+					
+					System.out.println(identifierArr.get(exerciseWhat-1).getName() + " were completed " + 
+					exerciseFreq[Integer.parseInt(identifierArr.get(exerciseWhat-1).getIdentifier())-1][1] + " times.");
+				
+					
+				}
+				
+				
+				
 				
 				// sort the array by the date
 				
