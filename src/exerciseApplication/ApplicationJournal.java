@@ -274,9 +274,14 @@ public class ApplicationJournal {
 						}
 					}
 					
-					for(int i = 0; i < summaryArr.size(); i++)
+					for(int i = 0; i < summaryArr.size()-1; i++)
 					{
+						int[] dateInfo = summaryArr.get(i).split("/");
 						
+						if(Integer.parseInt(summaryArr.get(i).returnDate() == 0))
+						{
+						
+						}
 					}
 					
 					// get the most recent date
