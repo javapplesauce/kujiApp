@@ -244,7 +244,7 @@ public class ApplicationJournal {
 						exerciseFreq[i][1] = 0;
 					}
 					
-					// concantenation portion
+					// concatenation portion
 					for(int i = 0; i < entryArr.size(); i++)
 					{
 						exerciseFreq[entryArr.get(i).returnIdentifier()-1][1]++;
@@ -256,6 +256,15 @@ public class ApplicationJournal {
 					System.out.println(identifierArr.get(exerciseWhat-1).getName() + " were completed " + 
 					exerciseFreq[Integer.parseInt(identifierArr.get(exerciseWhat-1).getIdentifier())-1][1] + " times.");
 				
+					
+					// creating the plot:
+					
+					/*	
+					 * 
+					 * 
+					 */
+					
+					
 					
 				}
 				else if(asdfResponse == 3)
@@ -274,6 +283,7 @@ public class ApplicationJournal {
 						}
 					}
 					
+					/*
 					for(int i = 0; i < summaryArr.size()-1; i++)
 					{
 						int[] dateInfo = summaryArr.get(i).split("/");
@@ -283,7 +293,7 @@ public class ApplicationJournal {
 						
 						}
 					}
-					
+					*/
 					// get the most recent date
 					
 					// subtract the weight difference (change input based on if you've increased weight or decreased weight
@@ -387,6 +397,43 @@ public class ApplicationJournal {
 		
     }
 
+	public static String buildPlot(int[][] arrayFreq)
+	{
+		// figure out which was done the most
+		int biggestNumIndex = 0;
+		for(int i = 0; i < arrayFreq.length; i++)
+		{
+			if(arrayFreq[i][1] > arrayFreq[biggestNumIndex][1])
+			{
+				biggestNumIndex = i;
+			}
+		}
+		
+		int modeFreq = arrayFreq[biggestNumIndex][1] + 3; // this is going to be the amount of time the most completed exercise was completed
+		
+		// create for loop that determines which method is done the most
+		
+		
+		// either one of these is printed: there is going to be a big nested for loop, and in the nest is going to be if statements
+		// the if statements determine based on the arrayFreq which one of the two below is going to be printed.		
+		System.out.print("   X   ");
+		System.out.print("       ");
+		
+		for(int i = 0; i < modeFreq; i++)
+		{
+			for(int j = 0; j < arrayFreq.length; j++)
+			{
+				// take the number of times that an exercise was compeleted (frequency), and subtract it from the modeFreq + 3 
+				// whenever that number is equal or less to the j number, then print an x otherwise don't print an x.
+				
+			
+			}
+		}
+		
+		
+		return "";
+	}
+	
 	public static String toString(int number)
 	{
 		return "" + number;
