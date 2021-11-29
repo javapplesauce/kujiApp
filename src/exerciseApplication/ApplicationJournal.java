@@ -79,7 +79,7 @@ public class ApplicationJournal {
 		
 		// create scanner for input from user
 		Scanner functionChooser = new Scanner(System.in);
-
+		
 		// while(whatFunct != 0)
 		// {
 			//choose function page
@@ -281,6 +281,11 @@ public class ApplicationJournal {
 						{
 							summaryArr.add(entryArr.get(i));
 						}
+						
+						exerciseEntry e = new exerciseEntry(1, "2", 3, 4);
+						
+						
+						
 					}
 					
 					/*
@@ -290,7 +295,7 @@ public class ApplicationJournal {
 						
 						if(Integer.parseInt(summaryArr.get(i).returnDate() == 0))
 						{
-						
+							
 						}
 					}
 					*/
@@ -399,6 +404,13 @@ public class ApplicationJournal {
 
 	public static String buildPlot(int[][] arrayFreq)
 	{
+		// this string returns the value that gets returned to get printed
+		
+		// should i return this value or should i print a value, i think im going to retun a value to be printed so that it doesnt take too much space
+		// should i store this data in it's own data column? Im rally not sure
+		String returnedString = "";
+		
+		
 		// figure out which was done the most
 		int biggestNumIndex = 0;
 		for(int i = 0; i < arrayFreq.length; i++)
@@ -416,8 +428,9 @@ public class ApplicationJournal {
 		
 		// either one of these is printed: there is going to be a big nested for loop, and in the nest is going to be if statements
 		// the if statements determine based on the arrayFreq which one of the two below is going to be printed.		
-		System.out.print("   X   ");
-		System.out.print("       ");
+		
+		String boxFilled = "   X   ";
+		String boxEmpty = "        ";
 		
 		for(int i = 0; i < modeFreq; i++)
 		{
@@ -426,6 +439,19 @@ public class ApplicationJournal {
 				// take the number of times that an exercise was compeleted (frequency), and subtract it from the modeFreq + 3 
 				// whenever that number is equal or less to the j number, then print an x otherwise don't print an x.
 				
+				// although British American colonies continued to pursue forced labor as a means of supporting sectors for economic gain,
+				// the people who were persuaded into labor changed as a result of trans-atlantic interactions, as seen through the 
+				// development into indentured servitude as a result of trans-atlantic interactions with Britain, 
+				// and as seen through the change from indentured servitude to slavery as a result of trans-atlantic trade routes. 
+				
+				// paragraph 1: context 
+					// further development of colonies
+					// economy broadened and centralized around exporting commodities to Great Britain. 
+					// trans-atlantic trade of British, American, and African goods/people developed
+					
+					// thesis
+				
+				// pragraph 2: change 1 - development of indentured servitude
 			
 			}
 		}
