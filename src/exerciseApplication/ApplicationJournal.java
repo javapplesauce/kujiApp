@@ -237,7 +237,7 @@ public class ApplicationJournal {
 					// goes through the entire cumulData arraylist and concatenate one each time the identiiers match up
 					
 					// assigns an identifier to each row of the array
-					int[][] exerciseFreq = new int[identifierArr.size()][2];
+					int[][] exerciseFreq = new int[identifierArr.size()][3];
 					for(int i = 0; i < identifierArr.size(); i++)
 					{
 						exerciseFreq[i][0] = Integer.parseInt(identifierArr.get(i).getIdentifier());
@@ -256,6 +256,8 @@ public class ApplicationJournal {
 					System.out.println(identifierArr.get(exerciseWhat-1).getName() + " were completed " + 
 					exerciseFreq[Integer.parseInt(identifierArr.get(exerciseWhat-1).getIdentifier())-1][1] + " times.");
 				
+					
+					System.out.print(buildPlot(exerciseFreq));
 					
 					// creating the plot:
 					
@@ -281,9 +283,6 @@ public class ApplicationJournal {
 						{
 							summaryArr.add(entryArr.get(i));
 						}
-						
-						exerciseEntry e = new exerciseEntry(1, "2", 3, 4);
-						
 						
 						
 					}
@@ -421,7 +420,12 @@ public class ApplicationJournal {
 			}
 		}
 		
-		int modeFreq = arrayFreq[biggestNumIndex][1] + 3; // this is going to be the amount of time the most completed exercise was completed
+		int modeFreq = arrayFreq[biggestNumIndex][1]; // this is going to be the amount of time the most completed exercise was completed
+		
+		for(int i = 0; i < arrayFreq.length; i++)
+		{
+			arrayFreq[i][2] = modeFreq - arrayFreq[i][1];
+		}
 		
 		// create for loop that determines which method is done the most
 		
@@ -430,34 +434,52 @@ public class ApplicationJournal {
 		// the if statements determine based on the arrayFreq which one of the two below is going to be printed.		
 		
 		String boxFilled = "   X   ";
-		String boxEmpty = "        ";
+		String boxEmpty = "       ";
+		String border = "|";
 		
+		
+				
 		for(int i = 0; i < modeFreq; i++)
 		{
+			returnedString += border; 
+			
 			for(int j = 0; j < arrayFreq.length; j++)
 			{
+				
+				
+				if(arrayFreq[j][2] > 0)
+				{
+					arrayFreq[j][2]--;
+					returnedString += boxEmpty;
+				}
+				else
+				{
+					arrayFreq[j][2]--;
+					returnedString += boxFilled;
+				}
+				
+				returnedString += border;
+				
+				/*
+				 
+				 modeFreq is 8 if the most completed exercise is 5
+				 I want to print boxes that are empty for the first three iterations, then print boxes with x for the rest
+				 this means that my if statement needs to check whether or not the loop is within the first three iterations
+				 
+				 */
+
+				
+				
 				// take the number of times that an exercise was compeleted (frequency), and subtract it from the modeFreq + 3 
 				// whenever that number is equal or less to the j number, then print an x otherwise don't print an x.
 				
-				// although British American colonies continued to pursue forced labor as a means of supporting sectors for economic gain,
-				// the people who were persuaded into labor changed as a result of trans-atlantic interactions, as seen through the 
-				// development into indentured servitude as a result of trans-atlantic interactions with Britain, 
-				// and as seen through the change from indentured servitude to slavery as a result of trans-atlantic trade routes. 
 				
-				// paragraph 1: context 
-					// further development of colonies
-					// economy broadened and centralized around exporting commodities to Great Britain. 
-					// trans-atlantic trade of British, American, and African goods/people developed
-					
-					// thesis
-				
-				// pragraph 2: change 1 - development of indentured servitude
-			
 			}
+			returnedString += "\n";
 		}
 		
 		
-		return "";
+		return returnedString;
 	}
 	
 	public static String toString(int number)
