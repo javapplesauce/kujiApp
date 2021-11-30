@@ -407,6 +407,12 @@ public class ApplicationJournal {
 		
 		// should i return this value or should i print a value, i think im going to retun a value to be printed so that it doesnt take too much space
 		// should i store this data in it's own data column? Im rally not sure
+		// either one of these is printed: there is going to be a big nested for loop, and in the nest is going to be if statements
+		// the if statements determine based on the arrayFreq which one of the two below is going to be printed.		
+		
+		String boxFilled = "   X   ";
+		String boxEmpty = "       ";
+		String border = "|";
 		String returnedString = "";
 		
 		
@@ -430,15 +436,7 @@ public class ApplicationJournal {
 		// create for loop that determines which method is done the most
 		
 		
-		// either one of these is printed: there is going to be a big nested for loop, and in the nest is going to be if statements
-		// the if statements determine based on the arrayFreq which one of the two below is going to be printed.		
-		
-		String boxFilled = "   X   ";
-		String boxEmpty = "       ";
-		String border = "|";
-		
-		
-				
+
 		for(int i = 0; i < modeFreq; i++)
 		{
 			returnedString += border; 
@@ -478,6 +476,18 @@ public class ApplicationJournal {
 			returnedString += "\n";
 		}
 		
+		for(int i = 0; i < arrayFreq.length; i++)
+		{
+			if(arrayFreq[i][0] < 10)
+			{
+				returnedString += "|  [" + arrayFreq[i][0] + "]  ";
+			}
+			else
+			{
+				returnedString += "|  [" + arrayFreq[i][0] + "] ";
+			}
+		}
+		returnedString += "|";
 		
 		return returnedString;
 	}
