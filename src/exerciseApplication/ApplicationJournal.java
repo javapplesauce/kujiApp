@@ -129,7 +129,7 @@ public class ApplicationJournal {
 				for(int i = 0; i < identifierArr.size(); i++)
 				{
 					System.out.println(identifierArr.get(i).getIdentifier() + ": " + identifierArr.get(i).getName());
-					namesOfExercises += identifierArr.get(i).getIdentifier() + ": " + identifierArr.get(i).getName() + "\n";
+					
 				}
 				int identifierNum = Integer.parseInt(br.nextLine());
 				
@@ -196,25 +196,28 @@ public class ApplicationJournal {
 				 */
 				
 				// get input on what analysis should be completed
+				
 				Scanner asdf = new Scanner(System.in);
 				System.out.println("Summary: How do you want your information summarized?" + 
 									"\n[1] display all logs from one exercise" + 
 									"\n[2] display information about the frequency of each exercise" + 
-									"\n[3] display the growth in weight for one exercise"
+									"\n[3] display the growth in weight for one exercise" + 
+									"\n[4] display graph of frequency of all exercises"
 									);
 				int asdfResponse = Integer.parseInt(asdf.nextLine());
 				
 				
 				// get input on which exercise should be analyzed
-				System.out.println("Which exercise do you want analyzed?");
-				Scanner Sca = new Scanner(System.in);
-				for(int i = 0; i < identifierArr.size(); i++)
-				{
-					System.out.println(identifierArr.get(i).getIdentifier() + ": " + identifierArr.get(i).getName());
 				
-				}
-				int exerciseWhat = Integer.parseInt(Sca.nextLine());
-				
+
+					System.out.println("Which exercise do you want analyzed?");
+					Scanner Sca = new Scanner(System.in);
+					for(int i = 0; i < identifierArr.size(); i++)
+					{
+						System.out.println(identifierArr.get(i).getIdentifier() + ": " + identifierArr.get(i).getName());
+					
+					}
+					int exerciseWhat = Integer.parseInt(Sca.nextLine());
 				
 				// processes the input from the user
 				if(asdfResponse == 1)
@@ -240,6 +243,11 @@ public class ApplicationJournal {
 				}
 				else if(asdfResponse == 2)
 				{
+					for(int i = 0; i < identifierArr.size(); i++)
+					{
+						namesOfExercises += identifierArr.get(i).getIdentifier() + ": " + identifierArr.get(i).getName() + "\n";
+					}
+					
 					// goes through the entire cumulData arraylist and concatenate one each time the identiiers match up
 					
 					// assigns an identifier to each row of the array
@@ -262,8 +270,6 @@ public class ApplicationJournal {
 					System.out.println(identifierArr.get(exerciseWhat-1).getName() + " were completed " + 
 					exerciseFreq[Integer.parseInt(identifierArr.get(exerciseWhat-1).getIdentifier())-1][1] + " times.");
 				
-					
-					System.out.print(buildPlot(exerciseFreq, namesOfExercises));
 					
 					// creating the plot:
 					
@@ -309,7 +315,31 @@ public class ApplicationJournal {
 					// subtract the weight difference (change input based on if you've increased weight or decreased weight
 				}
 				
-				
+				else if(asdfResponse == 4)
+				{
+					for(int i = 0; i < identifierArr.size(); i++)
+					{
+						namesOfExercises += identifierArr.get(i).getIdentifier() + ": " + identifierArr.get(i).getName() + "\n";
+					}
+					
+					// goes through the entire cumulData arraylist and concatenate one each time the identiiers match up
+					
+					// assigns an identifier to each row of the array
+					int[][] exerciseFreq = new int[identifierArr.size()][3];
+					for(int i = 0; i < identifierArr.size(); i++)
+					{
+						exerciseFreq[i][0] = Integer.parseInt(identifierArr.get(i).getIdentifier());
+						exerciseFreq[i][1] = 0;
+					}
+					
+					// concatenation portion
+					for(int i = 0; i < entryArr.size(); i++)
+					{
+						exerciseFreq[entryArr.get(i).returnIdentifier()-1][1]++;
+					}
+					
+					System.out.print(buildPlot(exerciseFreq, namesOfExercises));
+				}
 				
 				
 				// sort the array by the date
@@ -419,7 +449,7 @@ public class ApplicationJournal {
 		String boxFilled = "   X   ";
 		String boxEmpty = "       ";
 		String border = "|";
-		String returnedString = "";
+		String returnedString = "\n";
 		
 		
 		// figure out which was done the most
@@ -495,7 +525,7 @@ public class ApplicationJournal {
 		}
 		returnedString += "|";
 		
-		returnedString += "\n\n\n" + namesOfExercises;
+		returnedString += "\n\n\nKey:\n" + namesOfExercises;
 		
 		return returnedString;
 	}
