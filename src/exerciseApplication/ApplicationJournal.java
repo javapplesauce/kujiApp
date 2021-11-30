@@ -129,7 +129,7 @@ public class ApplicationJournal {
 				for(int i = 0; i < identifierArr.size(); i++)
 				{
 					System.out.println(identifierArr.get(i).getIdentifier() + ": " + identifierArr.get(i).getName());
-					namesOfExercises += identifierArr.get(i).getIdentifier() + ": " + identifierArr.get(i).getName();
+					namesOfExercises += identifierArr.get(i).getIdentifier() + ": " + identifierArr.get(i).getName() + "\n";
 				}
 				int identifierNum = Integer.parseInt(br.nextLine());
 				
