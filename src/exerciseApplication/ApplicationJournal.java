@@ -20,6 +20,7 @@ public class ApplicationJournal {
 		 * - entryArr = the array with all the entries (or the cumulative data)
 		 * - summaryArr = the arrayList that temporarily stores all the data of a single exercise that someone wants to log
 		 * - exerciseFreq = the arrayList that stores info on the frequency of exercises
+		 * - namesOfExercises = the arrayList that stores the names of all exercises
 		 */
 		
 		/*
@@ -38,6 +39,7 @@ public class ApplicationJournal {
 		boolean newData = false;
 		int newExerciseNum = 0;
 		int newEntryNum = 0;
+		String namesOfExercises = "";
 		
 		// read all the files
 		String exerciseList = readFile("C:\\Users\\s-liric\\OneDrive - Bellevue School District\\2021 Summer - 2022\\Per 5 CompSci Independent Study\\EclipseAppStuff\\exerciseList.txt");
@@ -110,6 +112,7 @@ public class ApplicationJournal {
 				System.out.println("What's the name of the exercise that you want to start logging? ");
 				String numb = newIdent.nextLine();
 				identifierArr.add(new exerciseType(toString(identifierArr.size()+1), numb));
+				namesOfExercises += identifierArr.get(identifierArr.size()-1).getIdentifier() + ": " + identifierArr.get(identifierArr.size()).getName();
 				System.out.println("Your exercise has been added :D ");
 				
 			}
@@ -121,10 +124,12 @@ public class ApplicationJournal {
 				// ask what exercise what they wanted to log
 				Scanner br = new Scanner(System.in);
 				
+				
 				System.out.println("Enter the exercise you want to log:");
 				for(int i = 0; i < identifierArr.size(); i++)
 				{
 					System.out.println(identifierArr.get(i).getIdentifier() + ": " + identifierArr.get(i).getName());
+					namesOfExercises += identifierArr.get(i).getIdentifier() + ": " + identifierArr.get(i).getName();
 				}
 				int identifierNum = Integer.parseInt(br.nextLine());
 				
@@ -206,6 +211,7 @@ public class ApplicationJournal {
 				for(int i = 0; i < identifierArr.size(); i++)
 				{
 					System.out.println(identifierArr.get(i).getIdentifier() + ": " + identifierArr.get(i).getName());
+				
 				}
 				int exerciseWhat = Integer.parseInt(Sca.nextLine());
 				
@@ -257,7 +263,7 @@ public class ApplicationJournal {
 					exerciseFreq[Integer.parseInt(identifierArr.get(exerciseWhat-1).getIdentifier())-1][1] + " times.");
 				
 					
-					System.out.print(buildPlot(exerciseFreq));
+					System.out.print(buildPlot(exerciseFreq, namesOfExercises));
 					
 					// creating the plot:
 					
@@ -401,7 +407,7 @@ public class ApplicationJournal {
 		
     }
 
-	public static String buildPlot(int[][] arrayFreq)
+	public static String buildPlot(int[][] arrayFreq, String namesOfExercises)
 	{
 		// this string returns the value that gets returned to get printed
 		
@@ -488,6 +494,8 @@ public class ApplicationJournal {
 			}
 		}
 		returnedString += "|";
+		
+		returnedString += "\n\n\n" + namesOfExercises;
 		
 		return returnedString;
 	}
