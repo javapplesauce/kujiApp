@@ -33,7 +33,7 @@ public class ApplicationTimer
 		
 		for(int i = 0; i < intervals; i++)
 		{
-			System.out.println("Interval " + i + ": begin! ");
+			System.out.println("Interval " + (i+1) + ": begin! ");
 			countDown(minWork, secWork);
 			
 			System.out.println("Rest! ");

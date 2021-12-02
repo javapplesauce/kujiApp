@@ -14,6 +14,30 @@ public class exerciseEntry {
 		this.repC = repC;
 		this.weightC = weightC;
 		
+		/*
+		 */
+		
+	}
+	
+	public void getDateInformation()
+	{
+		String month = "";
+		String day = "";
+		String year = "";
+		
+		String date = "12/2/21"; // this is a date I'm going to switch with the date given for the enry
+		month = date.substring(0, date.indexOf("/"));
+		date = date.substring(date.indexOf("/") + 1, date.length());
+		
+		day = date.substring(0, date.indexOf("/"));
+		year = date.substring(date.indexOf("/"), date.length());
+		
+		
+		// substring the stuff out right the index takes the smallest value of something 
+		// so i should be able to to tkae out the date, then set the string to the old string
+		// without having the other sring be the string 
+		
+		
 	}
 	
 	public void setDate(String date)
