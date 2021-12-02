@@ -276,6 +276,7 @@ public class ApplicationJournal {
 					/*	
 					 * 
 					 * 
+					 * 
 					 */
 					
 					
@@ -451,6 +452,14 @@ public class ApplicationJournal {
 		String border = "|";
 		String returnedString = "\n";
 		
+		returnedString += border;
+		for(int i = 0; i < arrayFreq.length; i++)
+		{
+			returnedString += boxEmpty;
+			returnedString += border;
+		}
+		
+		//
 		
 		// figure out which was done the most
 		int biggestNumIndex = 0;
