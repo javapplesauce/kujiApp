@@ -241,6 +241,7 @@ public class ApplicationJournal {
 					}
 					Sca.close();
 				}
+				
 				else if(asdfResponse == 2)
 				{
 					for(int i = 0; i < identifierArr.size(); i++)
@@ -510,7 +511,6 @@ public class ApplicationJournal {
 				 this means that my if statement needs to check whether or not the loop is within the first three iterations
 				 
 				 */
-
 				
 				
 				// take the number of times that an exercise was compeleted (frequency), and subtract it from the modeFreq + 3 
