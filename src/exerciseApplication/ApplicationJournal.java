@@ -26,7 +26,9 @@ public class ApplicationJournal {
 		/*
 		 * TO DO LIST:
 		 * - figure out how much to progressively overload (take the average of everything and add it to the value? take 
-		 * - work on the analysis portion of the program
+		 * - tweak the chart that is outputted to make it look better
+		 * - get the weight of the first time an exercise was done and the last, and average them to reccommend how much weight should be added
+		 * - try to use an API to implement voice activation
 		 */
 		
 		// to check if there's new data being added, if yes, this boolean changes to true, and the variables get added to
