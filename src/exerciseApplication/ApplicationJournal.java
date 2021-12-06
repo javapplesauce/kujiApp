@@ -329,7 +329,9 @@ public class ApplicationJournal {
 					// goes through the entire cumulData arraylist and concatenate one each time the identiiers match up
 					
 					// assigns an identifier to each row of the array
-					int[][] exerciseFreq = new int[identifierArr.size()][3];
+					int[][] exerciseFreq = new int[identifierArr.size()][4];
+					
+					
 					for(int i = 0; i < identifierArr.size(); i++)
 					{
 						exerciseFreq[i][0] = Integer.parseInt(identifierArr.get(i).getIdentifier());
@@ -341,6 +343,12 @@ public class ApplicationJournal {
 					{
 						exerciseFreq[entryArr.get(i).returnIdentifier()-1][1]++;
 					}
+					
+					for(int i = 0; i < identifierArr.size(); i++)
+					{
+						exerciseFreq[i][3] = identifierArr.get(exerciseFreq[i][0]).getName().substring(0,2) + identifierArr.get(exerciseFreq[i][0]).getName().substring((identifierArr.get(exerciseFreq[i][0]).getName().length()));
+					}
+					
 					
 					System.out.print(buildPlot(exerciseFreq, namesOfExercises));
 				}
