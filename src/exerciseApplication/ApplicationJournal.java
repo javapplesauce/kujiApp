@@ -346,9 +346,22 @@ public class ApplicationJournal {
 					
 					for(int i = 0; i < identifierArr.size(); i++)
 					{
-						exerciseFreq[i][3] = identifierArr.get(exerciseFreq[i][0]).getName().substring(0,2) + identifierArr.get(exerciseFreq[i][0]).getName().substring((identifierArr.get(exerciseFreq[i][0]).getName().length()));
+						if(identifierArr.get(i).indexOf(" ") == -1)
+						{
+							exerciseFreq[i][3] = identifierArr.get(i).getName().substring(0,2) + identifierArr.get(i).getName().substring((identifierArr.get(i).getName().length()));
+						}
+						else
+						{
+							String bucket = identifierArr.get(i).getName();
+							while(bucket.indexOf(" ") != -1)
+							{
+								// do everything from the previous if statement
+								
+								bucket = bucket.substring(bucket.indexOf(" ")+1);
+								
+							}
+						}
 					}
-					
 					
 					System.out.print(buildPlot(exerciseFreq, namesOfExercises));
 				}
