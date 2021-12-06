@@ -31,5 +31,10 @@ public class exerciseType {
 		return identifier + "," + name + ",";
 	}
 	
+	public String getAbbreviation()
+	{
+		return "";
+	}
+	
 	
 }
