@@ -330,7 +330,7 @@ public class ApplicationJournal {
 					
 					// assigns an identifier to each row of the array
 					int[][] exerciseFreq = new int[identifierArr.size()][4];
-					
+					String [] exerciseAbbName = new String[identifierArr.size()];
 					
 					for(int i = 0; i < identifierArr.size(); i++)
 					{
@@ -346,24 +346,11 @@ public class ApplicationJournal {
 					
 					for(int i = 0; i < identifierArr.size(); i++)
 					{
-						if(identifierArr.get(i).indexOf(" ") == -1)
-						{
-							exerciseFreq[i][3] = identifierArr.get(i).getName().substring(0,2) + identifierArr.get(i).getName().substring((identifierArr.get(i).getName().length()));
-						}
-						else
-						{
-							String bucket = identifierArr.get(i).getName();
-							while(bucket.indexOf(" ") != -1)
-							{
-								// do everything from the previous if statement
-								
-								bucket = bucket.substring(bucket.indexOf(" ")+1);
-								
-							}
-						}
+						exerciseAbbName[i] = identifierArr.get(i).getAbbreviation();
 					}
 					
-					System.out.print(buildPlot(exerciseFreq, namesOfExercises));
+					System.out.println("test");
+					System.out.print(buildPlot(exerciseFreq, namesOfExercises, exerciseAbbName));
 				}
 				
 				
@@ -462,7 +449,7 @@ public class ApplicationJournal {
 		
     }
 
-	public static String buildPlot(int[][] arrayFreq, String namesOfExercises)
+	public static String buildPlot(int[][] arrayFreq, String namesOfExercises, String[] abbreviatedNames)
 	{
 		// this string returns the value that gets returned to get printed
 		
@@ -505,7 +492,6 @@ public class ApplicationJournal {
 		// create for loop that determines which method is done the most
 		
 		
-
 		for(int i = 0; i < modeFreq; i++)
 		{
 			returnedString += border; 
@@ -543,7 +529,7 @@ public class ApplicationJournal {
 			}
 			returnedString += "\n";
 		}
-		
+	
 		for(int i = 0; i < arrayFreq.length; i++)
 		{
 			if(arrayFreq[i][0] < 10)

@@ -33,7 +33,25 @@ public class exerciseType {
 	
 	public String getAbbreviation()
 	{
-		return "";
+		String returnThis = "";
+		String tempName = name;
+		
+		if(name.indexOf(" ") == -1)
+		{
+			return name.substring(0,2) + name.substring(name.length()-1);
+		}
+		else
+		{
+			while(name.indexOf(" ") != -1)
+			{
+				returnThis += tempName.substring(0,2);
+				tempName = tempName.substring(tempName.indexOf(" ") + 1);	
+			}
+			return returnThis;
+			
+		}
+		
+		
 	}
 	
 	
