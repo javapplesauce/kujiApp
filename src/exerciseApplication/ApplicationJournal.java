@@ -29,6 +29,8 @@ public class ApplicationJournal {
 		 * - tweak the chart that is outputted to make it look better
 		 * - get the weight of the first time an exercise was done and the last, and average them to reccommend how much weight should be added
 		 * - try to use an API to implement voice activation
+		 * 
+		 * - get it so that the chart outputs with the abbreviated names
 		 */
 		
 		// to check if there's new data being added, if yes, this boolean changes to true, and the variables get added to
@@ -321,6 +323,7 @@ public class ApplicationJournal {
 				
 				else if(asdfResponse == 4)
 				{
+
 					for(int i = 0; i < identifierArr.size(); i++)
 					{
 						namesOfExercises += identifierArr.get(i).getIdentifier() + ": " + identifierArr.get(i).getName() + "\n";
@@ -343,13 +346,14 @@ public class ApplicationJournal {
 					{
 						exerciseFreq[entryArr.get(i).returnIdentifier()-1][1]++;
 					}
-					
+					System.out.println("p1");
 					for(int i = 0; i < identifierArr.size(); i++)
 					{
 						exerciseAbbName[i] = identifierArr.get(i).getAbbreviation();
 					}
+
 					
-					System.out.println("test");
+					System.out.println("p2");
 					System.out.print(buildPlot(exerciseFreq, namesOfExercises, exerciseAbbName));
 				}
 				
