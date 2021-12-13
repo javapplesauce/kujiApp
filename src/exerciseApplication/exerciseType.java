@@ -45,12 +45,15 @@ public class exerciseType {
 			while(tempName.indexOf(" ") != -1)
 			{
 				returnThis += tempName.substring(0,2);
-				tempName = tempName.substring(tempName.indexOf(" ") + 1);	
+				tempName = tempName.substring(tempName.indexOf(" ") + 1);
 			}
 			return returnThis;
 			
 		}
 		
+		// high low, lower low, then go into some back and forth between those two and it'll work
+		// make work on doing something in between those
+		// maybe go from up to down 
 		
 	}
 	

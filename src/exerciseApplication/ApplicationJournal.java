@@ -473,6 +473,7 @@ public class ApplicationJournal {
 			returnedString += boxEmpty;
 			returnedString += border;
 		}
+		returnedString += "\n";
 		
 		//
 		
