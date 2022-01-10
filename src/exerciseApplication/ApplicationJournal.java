@@ -586,6 +586,9 @@ public class ApplicationJournal {
 	{
 		maxDateIndex = 0;	
 		minDateIndex = 0;
+		// brhuv
+		
+		
 		
 		for(int i = 1; i < date[0].length; i++)
 		{
