@@ -558,7 +558,7 @@ public class ApplicationJournal {
 		return returnedString;
 	}
 	
-	public void sortDates(ArrayList arr) throws ParseException
+	public String sortDates(ArrayList<exerciseEntry> arr) throws ParseException
 	{
 	      
 	        Date[][] date = new Date[2][arr.size()];  						//dynamic memory allocation for date of size n
@@ -566,57 +566,57 @@ public class ApplicationJournal {
 	                                    
 	        for(int i=0;i<arr.size();i++)
 	        {                                          
-	            	str[0][i]=arr.get(i);
-	            	str[1][i]=arr.get(i).returnDate();
+	            	str[1][i]=arr.get(i);
+	            	System.out.println(str[0][i]);
+	            	str[0][i]=arr.get(i).returnDate();
 	            			/* put in date as dd-MM-yyyy */;                          //getting date as string from user
 	        }
 	        /* create object for SimpleDate format and spcify format for day-month-year as dd-MM-yyyy */
 	        SimpleDateFormat sobj = new SimpleDateFormat("dd-MM-yyyy");// format specified in double quotes
 	         
-	        for(i=0;i<n;i++)
+	        for(int i=0;i<arr.size();i++)
 	        {
-	            	date[0][i]=str[0][i];
-	            	date[1][i]=sobj.parse(str[1][i]);                         //parse the date string to date obj
+	            	date[1][i]=str[0][i];
+	            	date[0][i]=sobj.parse(str[1][i]);                         //parse the date string to date obj
 	        }
 	        /* import java.util.Arrays and sort the date[] array using inbuilt sort method */
-	        Arrays.sort(date);   // issue: not sure if this works with a 2d array                                                                          
-	}
+	        Arrays.sort(date[0]);   // issue: not sure if this works with a 2d array                                                                          
 	
-	public String getLeastAndMost(date[][])
-	{
-		maxDateIndex = 0;	
-		minDateIndex = 0;
-		// brhuv
-		
-		
-		
-		for(int i = 1; i < date[0].length; i++)
-		{
-			if(date[0][i].getRepC > 12)
+	        
+	        int maxDateIndex = 0;	
+			int minDateIndex = 0;
+			
+			
+			
+			for(int i = 1; i < date[0].length; i++)
 			{
-				if(date[0][i].getWeightC > date[0][maxDateIndex].getWeightC)
+				if(date[1][i].returnRepC() > 12)
 				{
-					maxDateIndex = i;
+					if(date[1][i].returnWeightC() > date[1][maxDateIndex].returnWeightC())
+					{
+						maxDateIndex = i;
+					}
+					else if(date[1][i].returnWeightC() < date[1][maxDateIndex].returnWeightC())
+					{
+						minDateIndex = i;
+					}
 				}
-				else if(date[0][i].getWeightC < date[0][maxDateIndex].getWeightC)
-				{
-					minDateIndex = i;
-				}
+				
 			}
-			
-		}
 
-		return "" + date[0][maxDateIndex].getWeightC + " " + date[maxDateIndex].getDay + " " + date[0][minDateIndex].getWeightC + " " + date[minDateIndex].getDay;
-			
-		/*
-		String weights = "variable name".split(" ");
-		int maxWeight = Integer.parseInt(weights[0]);
-		int maxWeightDay = Integer.parseInt(weights[1]);
-		int minWeight = IntegerparseInt(weights[2]);
-		int minWeightDay = Integer.parseInt(weights[3]);
-		*/
+			return "" + date[1][maxDateIndex].returnWeightC() + " " + date[maxDateIndex].returnDay() + " " + date[0][minDateIndex].returnWeightC() + " " + date[minDateIndex].getDay();
+				
+			/*
+			String weights = "variable name".split(" ");
+			int maxWeight = Integer.parseInt(weights[0]);
+			int maxWeightDay = Integer.parseInt(weights[1]);
+			int minWeight = IntegerparseInt(weights[2]);
+			int minWeightDay = Integer.parseInt(weights[3]);
+			*/
+	
 	}
 	
+
 	
 	
 	public static String toString(int number)
