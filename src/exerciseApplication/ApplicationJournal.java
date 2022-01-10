@@ -587,8 +587,6 @@ public class ApplicationJournal {
 		maxDateIndex = 0;	
 		minDateIndex = 0;
 		
-		// bruh
-
 		for(int i = 1; i < date[0].length; i++)
 		{
 			if(date[0][i].getRepC > 12)
