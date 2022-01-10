@@ -42,7 +42,7 @@ public class ApplicationJournal {
 		
 	}
 		
-	public void runApp() throws IOException, InterruptedException
+	public void runApp() throws IOException, InterruptedException, ParseException
 	{
 		
 		boolean newData = false;
@@ -371,6 +371,28 @@ public class ApplicationJournal {
 			}
 			else if(whatFunct == 5)
 			{
+				// this is progressive overload
+				ArrayList<exerciseEntry> filteredEntries = new ArrayList<exerciseEntry>();
+				
+				Scanner scan = new Scanner(System.in);
+				System.out.println("which exercise do you want to calculate a progressive overload for?\nPlease type the number associated with the exercise: ");
+				for(int i = 0; i < identifierArr.size(); i++)
+				{
+					System.out.println(identifierArr.get(i).getIdentifier() + ": " + identifierArr.get(i).getName());
+				
+				}
+				int filterThis = Integer.parseInt(scan.nextLine()); 
+				
+				for(int i = 0; i < entryArr.size(); i++)
+				{
+					if(entryArr.get(i).returnIdentifier() == filterThis)
+					{
+						filteredEntries.add(entryArr.get(i));
+					}
+				}
+				
+				String progOv = findProgressive(filteredEntries);
+				
 				// what do you want to do:
 				/*
 				 - get the most frequently done exercise?
@@ -558,7 +580,7 @@ public class ApplicationJournal {
 		return returnedString;
 	}
 	
-	public String sortDates(ArrayList<exerciseEntry> arr) throws ParseException
+	public String findProgressive(ArrayList<exerciseEntry> arr) throws ParseException
 	{
 	      
 	        Date[][] date = new Date[2][arr.size()];  						//dynamic memory allocation for date of size n
